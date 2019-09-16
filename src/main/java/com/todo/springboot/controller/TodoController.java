@@ -29,11 +29,12 @@ public class TodoController {
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		// Date - dd/MM/yyyy
+		// Date formatter in format - dd/MM/yyyy
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	}
 
+	//Fetching the list of todos of the user logging in
 	@RequestMapping(value = "/list-todos", method = RequestMethod.GET)
 	public String showTodos(ModelMap model) {
 		String name = getLoggedInUserName(model);
@@ -41,6 +42,7 @@ public class TodoController {
 		return "list-todos";
 	}
 
+	//Fetching the user details
 	private String getLoggedInUserName(ModelMap model) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -51,18 +53,21 @@ public class TodoController {
 		return principal.toString();
 	}
 
+	//Showing the Add todo page 
 	@RequestMapping(value = "/add-todo", method = RequestMethod.GET)
 	public String showAddTodoPage(ModelMap model) {
 		model.addAttribute("todo", new Todo());
 		return "todo";
 	}
 
+	//Removing the todo task
 	@RequestMapping(value = "/delete-todo", method = RequestMethod.GET)
 	public String deleteTodo(@RequestParam long id) {
 		todoService.deleteTodo(id);
 		return "redirect:/list-todos";
 	}
 
+	//Fetching the updated todo task list
 	@RequestMapping(value = "/update-todo", method = RequestMethod.GET)
 	public String showUpdateTodoPage(@RequestParam long id, ModelMap model) {
 		Todo todo = todoService.getTodoById(id).get();
@@ -70,6 +75,7 @@ public class TodoController {
 		return "todo";
 	}
 
+	//Updating the task already created
 	@RequestMapping(value = "/update-todo", method = RequestMethod.POST)
 	public String updateTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
 
@@ -82,6 +88,7 @@ public class TodoController {
 		return "redirect:/list-todos";
 	}
 
+	//Adding the todo task
 	@RequestMapping(value = "/add-todo", method = RequestMethod.POST)
 	public String addTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
 

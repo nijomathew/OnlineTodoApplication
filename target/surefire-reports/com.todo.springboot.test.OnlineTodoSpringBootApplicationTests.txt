@@ -1,7 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.todo.springboot.test.OnlineTodoSpringBootApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.647 s <<< FAILURE! - in com.todo.springboot.test.OnlineTodoSpringBootApplicationTests
-initializationError(com.todo.springboot.test.OnlineTodoSpringBootApplicationTests)  Time elapsed: 0.026 s  <<< ERROR!
-java.lang.IllegalStateException: Found multiple @SpringBootConfiguration annotated classes [Generic bean: class [com.todo.springboot.OnlineTodoSpringBootApplication]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\Mathew\Desktop\todo-management-spring-boot-master\todo-management-spring-boot-master\target\classes\com\todo\springboot\OnlineTodoSpringBootApplication.class], Generic bean: class [com.todo.springboot.TodoManagementSpringBoot2Application]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\Mathew\Desktop\todo-management-spring-boot-master\todo-management-spring-boot-master\target\classes\com\todo\springboot\TodoManagementSpringBoot2Application.class]]
-

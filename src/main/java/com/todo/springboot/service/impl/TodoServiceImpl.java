@@ -11,6 +11,7 @@ import com.todo.springboot.model.Todo;
 import com.todo.springboot.repository.TodoRepository;
 import com.todo.springboot.service.ITodoService;
 
+//Service Implementer class which involves all the relational database operations
 @Service
 public class TodoServiceImpl implements ITodoService {
 
